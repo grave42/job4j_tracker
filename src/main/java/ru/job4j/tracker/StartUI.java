@@ -8,5 +8,7 @@ public class StartUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String currentDateTimeFormat = item.getCreated().format(formatter);
         System.out.println(currentDateTimeFormat);
+        Item newItem = new Item("Test Item", 123);
+        System.out.println(newItem);
     }
 }
