@@ -34,6 +34,4 @@ public class Order {
         this.car = car;
         this.status = status;
     }
-
-
 }
