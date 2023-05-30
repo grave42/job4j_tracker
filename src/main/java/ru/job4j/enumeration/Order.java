@@ -5,6 +5,12 @@ public class Order {
     private String car;
     private Status status;
 
+    public Order(int number, String car, Status status) {
+        this.number = number;
+        this.car = car;
+        this.status = status;
+    }
+
     public int getNumber() {
         return number;
     }
@@ -26,12 +32,6 @@ public class Order {
     }
 
     public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Order(int number, String car, Status status) {
-        this.number = number;
-        this.car = car;
         this.status = status;
     }
 }
