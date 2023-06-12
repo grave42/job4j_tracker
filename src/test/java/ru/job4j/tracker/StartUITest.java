@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
-    String ln = System.lineSeparator();
+    private static final String LN = System.lineSeparator();
 
     @Test
     public void whenCreateItem() {
@@ -66,8 +66,8 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + ln
-                        + "0. Exit" + ln
+                "Menu." + LN
+                        + "0. Exit" + LN
         );
     }
 
@@ -82,13 +82,13 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + ln
-                        + "0. === Show all items ===" + ln
-                        + "1. Exit" + ln
-                        + "Хранилище еще не содержит заявок" + ln
-                        + "Menu." + ln
-                        + "0. === Show all items ===" + ln
-                        + "1. Exit" + ln);
+                "Menu." + LN
+                        + "0. === Show all items ===" + LN
+                        + "1. Exit" + LN
+                        + "Хранилище еще не содержит заявок" + LN
+                        + "Menu." + LN
+                        + "0. === Show all items ===" + LN
+                        + "1. Exit" + LN);
     }
 
     @Test
@@ -103,13 +103,13 @@ public class StartUITest {
                 new ExitMenu()};
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-               "Menu." + ln
-                       + "0. === Find item by name===" + ln
-                       + "1. Exit" + ln
-                       + item + ln
-                       + "Menu." + ln
-                       + "0. === Find item by name===" + ln
-                       + "1. Exit" + ln);
+               "Menu." + LN
+                       + "0. === Find item by name===" + LN
+                       + "1. Exit" + LN
+                       + item + LN
+                       + "Menu." + LN
+                       + "0. === Find item by name===" + LN
+                       + "1. Exit" + LN);
     }
 
     @Test
@@ -124,12 +124,12 @@ public class StartUITest {
                 new ExitMenu()};
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + ln
-                        + "0. === Find item by id===" + ln
-                        + "1. Exit" + ln
-                        + item + ln
-                        + "Menu." + ln
-                        + "0. === Find item by id===" + ln
-                        + "1. Exit" + ln);
+                "Menu." + LN
+                        + "0. === Find item by id===" + LN
+                        + "1. Exit" + LN
+                        + item + LN
+                        + "Menu." + LN
+                        + "0. === Find item by id===" + LN
+                        + "1. Exit" + LN);
     }
 }
