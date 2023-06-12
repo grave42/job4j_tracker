@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
+    String ln = System.lineSeparator();
+
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
@@ -64,8 +66,8 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + System.lineSeparator()
-                        + "0. Exit" + System.lineSeparator()
+                "Menu." + ln
+                        + "0. Exit" + ln
         );
     }
 
@@ -80,13 +82,13 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + System.lineSeparator()
-                        + "0. === Show all items ===" + System.lineSeparator()
-                        + "1. Exit" + System.lineSeparator()
-                        + "Хранилище еще не содержит заявок" + System.lineSeparator()
-                        + "Menu." + System.lineSeparator()
-                        + "0. === Show all items ===" + System.lineSeparator()
-                        + "1. Exit" + System.lineSeparator());
+                "Menu." + ln
+                        + "0. === Show all items ===" + ln
+                        + "1. Exit" + ln
+                        + "Хранилище еще не содержит заявок" + ln
+                        + "Menu." + ln
+                        + "0. === Show all items ===" + ln
+                        + "1. Exit" + ln);
     }
 
     @Test
@@ -101,13 +103,13 @@ public class StartUITest {
                 new ExitMenu()};
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-               "Menu." + System.lineSeparator()
-                       + "0. === Find item by name===" + System.lineSeparator()
-                       + "1. Exit" + System.lineSeparator()
-                       + item + System.lineSeparator()
-                       + "Menu." + System.lineSeparator()
-                       + "0. === Find item by name===" + System.lineSeparator()
-                       + "1. Exit" + System.lineSeparator());
+               "Menu." + ln
+                       + "0. === Find item by name===" + ln
+                       + "1. Exit" + ln
+                       + item + ln
+                       + "Menu." + ln
+                       + "0. === Find item by name===" + ln
+                       + "1. Exit" + ln);
     }
 
     @Test
@@ -122,12 +124,12 @@ public class StartUITest {
                 new ExitMenu()};
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + System.lineSeparator()
-                        + "0. === Find item by id===" + System.lineSeparator()
-                        + "1. Exit" + System.lineSeparator()
-                        + item + System.lineSeparator()
-                        + "Menu." + System.lineSeparator()
-                        + "0. === Find item by id===" + System.lineSeparator()
-                        + "1. Exit" + System.lineSeparator());
+                "Menu." + ln
+                        + "0. === Find item by id===" + ln
+                        + "1. Exit" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. === Find item by id===" + ln
+                        + "1. Exit" + ln);
     }
 }
