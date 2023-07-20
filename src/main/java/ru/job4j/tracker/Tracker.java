@@ -44,17 +44,16 @@ public class Tracker {
         return List.copyOf(items);
     }
 
-    public Item[] findByName(String key) {
-        Item[] itemsRes = new Item[items.size()];
-        int counter = 0;
-        for (int index = 0; index < items.size(); index++) {
-            Item name = items.get(index);
-            if (name.getName().equals(key)) {
-                itemsRes[counter] = name;
-                counter++;
+    public List<Item> findByName(String key) {
+        List<Item> itemsRes = new ArrayList<>();
+//        int counter = 0;
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                itemsRes.add(item);
+
             }
         }
-        itemsRes = Arrays.copyOf(itemsRes, counter);
+//        itemsRes = Arrays.copyOf(itemsRes, counter);
         return itemsRes;
     }
 
