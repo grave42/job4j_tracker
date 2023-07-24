@@ -21,10 +21,8 @@ public class ReconstructPhrase {
         for (int i = 0; i < size; i++) {
             if (i % 2 == 0) {
                 res.append(evenElements.removeFirst());
-                size++;
             } else {
                 evenElements.removeFirst();
-                size--;
             }
         }
         return res.toString();
