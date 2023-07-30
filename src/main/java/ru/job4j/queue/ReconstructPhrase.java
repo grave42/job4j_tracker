@@ -17,14 +17,12 @@ public class ReconstructPhrase {
 
     private String getEvenElements() {
         StringBuilder res = new StringBuilder();
-        int razmer = evenElements.size();
-        for (int i = 0; i < razmer; i++) {
+        int size = evenElements.size();
+        for (int i = 0; i < size; i++) {
             if (i % 2 == 0) {
                 res.append(evenElements.removeFirst());
-                razmer++;
             } else {
                 evenElements.removeFirst();
-                razmer--;
             }
         }
         return res.toString();
@@ -32,10 +30,9 @@ public class ReconstructPhrase {
 
     private String getDescendingElements() {
         StringBuilder res = new StringBuilder();
-        int razmer =  descendingElements.size();
-        for (int i = razmer - 1; i >= 0; i--) {
+        int size =  descendingElements.size();
+        for (int i = 0; i < size; i++) {
             res.append(descendingElements.removeLast());
-            razmer++;
             }
         return res.toString();
     }
