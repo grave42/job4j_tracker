@@ -10,12 +10,11 @@ public class Departments {
             String start = "";
             for (String el : value.split("/")) {
                 if (start.isEmpty()) {
-                    tmp.add(el);
                     start = el;
                 } else {
-                    tmp.add(start + "/" + el);
                     start += "/" + el;
                 }
+                tmp.add(start.isEmpty() ? el : start);
             }
         }
         return new ArrayList<>(tmp);
