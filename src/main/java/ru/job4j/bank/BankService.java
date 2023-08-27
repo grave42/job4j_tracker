@@ -3,7 +3,10 @@ package ru.job4j;
 import ru.job4j.bank.Account;
 import ru.job4j.bank.User;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 
@@ -21,6 +24,7 @@ public class BankService {
 
     /**
      * Добавляет пользователя в коллекцию, если его еще там нет
+     *
      * @param user объект пользователя
      */
     public void addUser(User user) {
@@ -29,6 +33,7 @@ public class BankService {
 
     /**
      * Удаляет пользователя по заданному параметру passoprt
+     *
      * @param passport значение паспорта
      * @return Объект пользователя, который был удалён
      */
@@ -38,8 +43,9 @@ public class BankService {
 
     /**
      * Метод добавляет новый аккаунт для пользователя, находя его по паспорту
+     *
      * @param passport значение паспорта
-     * @param account Объект Account
+     * @param account  Объект Account
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -53,44 +59,45 @@ public class BankService {
 
     /**
      * Метод осуществляет поиск пользователя по паспорту
+     *
      * @param passport значение паспорта
      * @return вовзращает пользователя или null если не найден
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
      * Метод осуществляет поиск Аккаунта по заданным реквизитам
-     * @param passport значение паспорта
+     *
+     * @param passport  значение паспорта
      * @param requisite значение реквизитов
      * @return возвращает аккаунт или null если он не найден
      */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (!isNull(user)) {
-            List<Account> accs = users.get(user);
-            for (Account acc : accs) {
-                if (acc.getRequisite().equals(requisite)) {
-                    return acc;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
 
     /**
      * Метод переводит средства с одного баланса на другой
-     * @param srcPassport значение паспорта пользователя, который совершает перевод
-     * @param srcRequisite значение реквизитов пользователя, который совершает перевод
-     * @param destPassport значение паспорта пользователя куда соврешается перевод
+     *
+     * @param srcPassport   значение паспорта пользователя, который совершает перевод
+     * @param srcRequisite  значение реквизитов пользователя, который совершает перевод
+     * @param destPassport  значение паспорта пользователя куда соврешается перевод
      * @param destRequisite значение ревизвитов пользователя куда совершается перевод
-     * @param amount сумма для перевода
+     * @param amount        сумма для перевода
      * @return возвращает true если перевод удалось совершить и false, если нет
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
@@ -107,6 +114,7 @@ public class BankService {
 
     /**
      * Метод для поиска всех аккаунтов, заданного пользователя
+     *
      * @param user пользователь, чьи аккаунты нужно найти
      * @return возраващет список аккаунтов пользователя
      */
