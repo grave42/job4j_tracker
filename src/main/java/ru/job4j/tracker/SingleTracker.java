@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SingleTracker {
 
-    private Tracker tracker = new Tracker();
+    private MemTracker tracker = new MemTracker();
 
     private static SingleTracker instance = null;
 
@@ -42,7 +42,6 @@ public class SingleTracker {
         return tracker.findByName(key);
     }
 
-    public boolean delete(int id) {
-        return tracker.delete(id);
+    public void delete(int id) {
     }
 }
