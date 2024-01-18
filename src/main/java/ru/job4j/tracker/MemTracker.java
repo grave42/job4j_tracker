@@ -19,7 +19,7 @@ public class MemTracker implements Store {
         return index != -1 ? items.get(index) : null;
     }
 
-    int indexOf(int id) {
+    public int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
