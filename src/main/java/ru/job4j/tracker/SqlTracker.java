@@ -19,7 +19,7 @@ public class SqlTracker implements Store {
     }
 
     public void init() {
-        try (InputStream input = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
+        try (InputStream input = SqlTracker.class.getClassLoader().getResourceAsStream("db/liquibase.properties")) {
             Properties config = new Properties();
             config.load(input);
             Class.forName(config.getProperty("driver-class-name"));
