@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.tracker.action.*;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class StartUITest {
         );
         MemTracker tracker = new MemTracker();
         UserAction[] actions = {
-                new CreateAction(out),
+                new Create(out),
                 new ExitMenu()
         };
         new StartUI(out).init(in, tracker, List.of(actions));
@@ -50,7 +51,7 @@ public class StartUITest {
                 new String[]{"0", Integer.toString(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteItem(out),
+                new Delete(out),
                 new ExitMenu()
         };
         new StartUI(out).init(in, tracker, List.of(actions));

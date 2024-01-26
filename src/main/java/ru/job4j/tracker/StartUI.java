@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.action.*;
+
 import java.util.List;
 
 public class StartUI {
@@ -38,11 +40,11 @@ public class StartUI {
         );
         try (Store tracker = new SqlTracker()) {
             List<UserAction> actions = List.of(
-                    new CreateAction(output),
+                    new Create(output),
                     new ShowAllItems(output),
                     new EditItem(output),
                     new FindItemById(output),
-                    new DeleteItem(output),
+                    new Delete(output),
                     new FindItemByName(output),
                     new ExitMenu()
             );

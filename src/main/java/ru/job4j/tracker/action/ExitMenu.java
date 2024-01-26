@@ -1,4 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Store;
+import ru.job4j.tracker.action.UserAction;
 
 public class ExitMenu implements UserAction {
 
