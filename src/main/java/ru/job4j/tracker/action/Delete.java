@@ -3,7 +3,6 @@ package ru.job4j.tracker.action;
 import ru.job4j.tracker.Input;
 import ru.job4j.tracker.Output;
 import ru.job4j.tracker.Store;
-import ru.job4j.tracker.action.UserAction;
 
 public class Delete implements UserAction {
     private final Output out;
