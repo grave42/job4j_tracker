@@ -25,11 +25,11 @@ class FindItemByNameTest {
 
         Input input = mock(Input.class);
 
-        when(input.askInt(any(String.class))).thenReturn(1);
+        when(input.askStr(any(String.class))).thenReturn("test");
 
         findByNameAction.execute(input, tracker);
 
-        assertThat(item);
+        assertThat(output.toString().trim()).isEqualTo(item.toString().trim());
     }
 
 }

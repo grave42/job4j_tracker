@@ -29,7 +29,7 @@ class FindItemByIdTest {
 
         findByIdAction.execute(input, tracker);
 
-        assertThat(item);
+        assertThat(output.toString().trim()).isEqualTo(item.toString().trim());
     }
 
 }
