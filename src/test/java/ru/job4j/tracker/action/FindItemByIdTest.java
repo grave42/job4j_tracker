@@ -29,7 +29,8 @@ class FindItemByIdTest {
 
         findByIdAction.execute(input, tracker);
 
-        assertThat(output.toString().trim()).isEqualTo(item.toString().trim());
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(item + ln);
     }
 
 }

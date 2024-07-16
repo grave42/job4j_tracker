@@ -28,8 +28,8 @@ class FindItemByNameTest {
         when(input.askStr(any(String.class))).thenReturn("test");
 
         findByNameAction.execute(input, tracker);
-
-        assertThat(output.toString().trim()).isEqualTo(item.toString().trim());
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(item + ln);
     }
 
 }
